@@ -1,5 +1,4 @@
 /* *** MENU *** */
-
 ((d)=> {
     const $btnMenu = d.querySelector(".menu-btn"),
     $menu = d.querySelector(".menu");
@@ -19,9 +18,7 @@
     })
 })(document);
 
-
 /* *** CONTACT FORM *** */
-
 ((d)=> {
     const $form = d.querySelector(".contact-form");
 
@@ -39,5 +36,15 @@
         .catch(err=> {
             console.log(err);
         });
+    });
+})(document);
+
+/* *** SWITCH THEME *** */
+((d)=> {
+    const $switch = d.querySelector(".switch"),
+    $background = d.querySelector("body");
+
+    $switch.addEventListener("click",(e)=> {
+        $background.classList.toggle("dark");
     });
 })(document);
