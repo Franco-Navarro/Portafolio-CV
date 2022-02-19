@@ -14,6 +14,7 @@
     --font: 'Lato', sans-serif;
     --max-widht: 1200px;
     --header-height: 4rem;
+    --border-radius: 1rem;
 }
 
 /* ***** Reset ***** */
@@ -96,6 +97,7 @@ p {
     align-items: center;
     flex-direction: column;
     max-width: 800px;
+    border-radius: var(--border-radius);
 }
 
 .contact-form h3{
@@ -110,7 +112,7 @@ p {
 
 .contact-form textarea{
     height: 250px;
-    border: medium solid var(--first-light-color);
+    border: 2px solid var(--first-light-color);
     resize: none;
 }
 
@@ -119,18 +121,18 @@ p {
     height: 2rem;
     padding: 1rem;
     margin: 1rem 0;
-    border: none;
-    border-bottom: medium solid var(--first-light-color);
+    border: 2px solid var(--first-light-color);
     background-color: transparent;
     font-size: 1rem;
     font-family: var(--font);
     color: var(--text-color);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-radius: var(--border-radius);
+    outline: none;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus{
-    outline: none;
     background-color: var(--background-alpha-color);
 }
 
@@ -240,8 +242,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
     opacity: 0;
     pointer-events: none;
+    
 }
 
 .modal-content{
@@ -275,7 +279,7 @@ p {
 .modal[id|="trabajo"]:target{
     opacity: 1;
     pointer-events: auto;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 /* *** SWITCH THEME *** */
@@ -346,7 +350,7 @@ p {
 }
 
 .btn {
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     background-color: var(--second-color);
     color: var(--text-color-white);
     display: inline-block;
@@ -361,7 +365,7 @@ p {
 }
 
 .btn:hover{
-    color: var(--text-color-black);
+    color: var(--first-alpha-color);
 }
 
 .center{
@@ -404,7 +408,7 @@ p {
 }
 
 .about img{
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     /*filter: grayscale(1);*/
 }
 
@@ -424,7 +428,8 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin:0;
+    margin:1rem 0;
+    border-radius: var(--border-radius);
 }
 
 .contact-card h3{
@@ -511,12 +516,14 @@ p {
     max-width: 400px;
     display: flex;
     flex-direction: column;
+    border-radius: var(--border-radius);
 }
 
 .portfolio-modal img{
     max-width: 350px;
     margin: 0 auto;
     box-shadow: 1px 3px 5px var(--background-alpha-color);
+    border-radius: var(--border-radius);
 }
 
 .portfolio-modal h3 {
@@ -528,7 +535,8 @@ p {
 .portfolio-details {
     display: grid;
     grid-template-columns: 40% 60%;
-    grid-auto-rows: 2rem;
+    grid-auto-rows: 2.5rem;
+    
 }
 
 .portfolio-details b{
@@ -540,6 +548,7 @@ p {
     width: 100%;
     margin: 1rem auto;
     display: block;
+    
 }
 
 .proyects-card img{
@@ -547,6 +556,7 @@ p {
     height: 100%;
     object-fit: cover;
     margin: 0 auto;
+    border-radius: var(--border-radius);
 }
 
 .proyects-card-info{
@@ -557,15 +567,8 @@ p {
     height: 100%;
     padding: 1rem;
     color: var(--text-color-white);
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.proyects-card:hover .proyects-card-info{
     background-color: var(--first-alpha-color);
-    opacity: 1;
-    pointer-events: auto;
+    border-radius: var(--border-radius);
 }
 
 .proyects-card-info > div{
@@ -645,6 +648,18 @@ p {
 
     .know .section-title{
         grid-column: span 3;
+    }
+
+    .proyects-card-info{
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .proyects-card:hover .proyects-card-info{
+        background-color: var(--first-alpha-color);
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .proyects > .container{
