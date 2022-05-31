@@ -20,7 +20,9 @@
 
 /* *** CONTACT FORM *** */
 ((d)=> {
-    const $form = d.querySelector(".contact-form");
+    const $form = d.querySelector(".contact-form"),
+    $send = d.querySelector(".contact-form-send"),
+    $error = d.querySelector(".contact-form-error");
 
     $form.addEventListener("submit", (e)=> {
         e.preventDefault();
@@ -30,8 +32,19 @@
         })
         .then((res)=> (res.ok ? res.json():Promise.reject(res)))
         .then(json=> {
-            console.log(json);
             $form.reset();
+            if(json.success === "true"){
+                $send.classList.remove("none");
+                setTimeout(()=>{
+                    $send.classList.add("none");
+                }, 5000);
+            }
+            else {
+                $error.classList.remove("none");
+                setTimeout(()=>{
+                    $error.classList.add("none");
+                }, 5000);
+            }
         })
         .catch(err=> {
             console.log(err);
