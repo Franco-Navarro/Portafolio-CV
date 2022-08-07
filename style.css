@@ -470,7 +470,7 @@ p {
     display: inline-block;
     border-radius: 50px;
     position: fixed;
-    bottom: calc(var(--header-height) + 1rem) ;
+    bottom: calc(var(--header-height) + 2rem) ;
     right: 1rem;
     transition: all 0.3s ease;
     transform-origin: 20% center;
@@ -594,7 +594,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin:1rem 0;
+    margin:1rem 2rem;
     border-radius: var(--border-radius);
 }
 
@@ -625,29 +625,59 @@ p {
 .contact-cards{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin: 2rem 0;
 }
 
-.footer{
+
+.footer {
     width: 100%;
-    height: 3rem;
+    height: 6rem;
     background-color: var(--first-light-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-bottom: var(--header-height);
-}
-
-.footer small {
-    font-size: 1rem;
-    color: var(--text-color-white);
-}
-
-.footer a {
+  }
+  
+  .footer a svg {
+    fill: var(--text-color-white);
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+  }
+  
+  .footer a p {
+    display: none;
+  }
+  
+  .footer aside {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 3rem;
+  }
+  
+  .footer aside a {
     text-decoration: none;
-}
+    display: flex;
+    align-items: center;
+    padding: 0 1.3rem;
+  }
+  
+  .footer aside a:hover svg{
+    fill: var(--second-color);
+  }
+  
+  .footer small {
+    font-size: 0.9rem;
+    color: var(--text-color-white);
+    margin: 0.8rem;
+  }
+
+  .footer small a{
+    text-decoration: none;
+  }
 
 .header{
     position: fixed;
@@ -722,6 +752,21 @@ p {
         font-size: 1rem;
     }
 
+    .footer {
+        grid-column: span 2;
+    }
+    
+    .footer a p {
+        display: initial;
+        color: var(--text-color-white);
+        padding: 0 0.5rem;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .footer a:hover p {
+        color: var(--second-color);
+    }
+
     .know > .container{
         display: grid;
         grid-template-columns: repeat(2, 45%);
@@ -761,9 +806,11 @@ p {
         flex-direction: row;
     }
 
-    .footer{
+    .footer {
+        grid-column: span 3;
+        align-self: end;
         margin-bottom: 0;
-    }
+      }
 
     .header{
         position: sticky;
